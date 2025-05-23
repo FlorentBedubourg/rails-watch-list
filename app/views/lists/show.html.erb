@@ -1,0 +1,25 @@
+<h1>Nous sommes dans la liste : <%= @list.name %></h1>
+
+<ul>
+    <% @list.movies.each do |movie, bookmark| %>
+    <li>
+      <%= movie.title %>
+      <%= movie.overview %>
+      <%= movie.poster_url %>
+      <%= movie.rating %>
+
+      <%= link_to "🗑", list_path(@list),
+          data: { turbo_method: :delete, turbo_confirm: "Are you sure Roya?" }%>
+    </li>
+  <% end %>
+</ul>
+
+
+<%= simple_form_for [@list, @bookmark] do |f| %>
+  <%= f.input :comment %>
+  <%= f.input :movie_id, collection: Movie.all %>
+  <%= f.submit %>
+<% end %>
+
+
+<p><%= link_to '< Back to list', lists_path %></p>

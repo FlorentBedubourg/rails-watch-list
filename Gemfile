@@ -30,6 +30,7 @@ gem "simple_form"
 
 gem "sassc-rails"
 
+gem "ostruct"
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem "stimulus-rails"
 
